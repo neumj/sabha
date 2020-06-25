@@ -24,7 +24,7 @@ def mobilityModelParameters():
     print('1) Standard VEGAS Mobility Model');
     print('2) Iterative VEGAS Mobility Model');
     print('3) Agent Based VEGAS Mobility Model'); 
-    Options['ModelType']=int(raw_input('Input model type: '));
+    Options['ModelType']=int(input('Input model type: '));
     print(' ')
     if Options['ModelType']==1:
         print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
@@ -49,22 +49,22 @@ def mobilityModelParameters():
     print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
     print(' ')
     print('Enter 1 to load a cost surface(s).')
-    Options['CstOpt']=int(raw_input('Enter 2 for no cost surface (only use distance): '));
+    Options['CstOpt']=int(input('Enter 2 for no cost surface (only use distance): '));
     if Options['CstOpt']==1:
         Options['Costs'] = []
-        numCosts=int(raw_input('How many raster cost surfaces: '));
+        numCosts=int(input('How many raster cost surfaces: '));
         wts = []
         for i in range(0,numCosts):
             csDict = {}
-            csFilename=raw_input('Input file path (ex: c:\\data\\e32n35.mat or c:\\data\\e32n35.txt): ');
+            csFilename=input('Input file path (ex: c:\\data\\e32n35.mat or c:\\data\\e32n35.txt): ');
             csDict.update({'Filename':csFilename})
             print('Type of Raster: ');
             print('1) Area Based Slope');
             print('2) Linear Based Slope');
             print('3) Other / General');
-            csType = int(raw_input('Input type of cost surface: '));
+            csType = int(input('Input type of cost surface: '));
             csDict.update({'type':csType})
-            wtVal=float(raw_input('Input weight in percent for this layer: '));
+            wtVal=float(input('Input weight in percent for this layer: '));
             wts.append(wtVal)
             Options['Costs'].append(csDict)
             print(' ');
@@ -77,25 +77,25 @@ def mobilityModelParameters():
         if slopes==True:
             print('How to assess slope cost?');
             print('1) Hiking Function');
-            Options['typeLinearSlopeTransform']=int(raw_input('2) Splined Asymmetric: '));
+            Options['typeLinearSlopeTransform']=int(input('2) Splined Asymmetric: '));
             print(' ');
             print('Type of travel:');
             print('1) Passenger Car');
             print('2) Heavy Off-Road Vehicle');
             print('3) Pedestrian / Animal');
             print('4) Custom define the parameters');
-            Options['defaultSlopeValues'] = int(raw_input('Type of slope parameters to use: '));
+            Options['defaultSlopeValues'] = int(input('Type of slope parameters to use: '));
             if Options['defaultSlopeValues']==4:
-                Options.areaSteepness=float(raw_input('Steepness factor for areal slope calculation: '));
+                Options.areaSteepness=float(input('Steepness factor for areal slope calculation: '));
                 if Options['typeLinearSlopeTransform']==1:
-                    Options['linearSteepness']=float(raw_input('Steepness factor for linear slope calculation: '));
-                    Options['linearSquareness']=float(raw_input('Squareness factor for linear slope calculation: '));
-                    Options['linearAsymmetry']=float(raw_input('Asymmetry factor for linear slope calculation: ')); #%% Check this  %%
+                    Options['linearSteepness']=float(input('Steepness factor for linear slope calculation: '));
+                    Options['linearSquareness']=float(input('Squareness factor for linear slope calculation: '));
+                    Options['linearAsymmetry']=float(input('Asymmetry factor for linear slope calculation: ')); #%% Check this  %%
                 else:
-                    Options['breakpoint']=float(raw_input('Slope of Asymmetry: '));
-                    Options['slopeCutoff']=float(raw_input('Slope at which travel is impossible: '));
-                    Options['positiveScalingFactor']=float(raw_input('exp equation coefficient for positive slope values: '));
-                    Options['negativeScalingFactor']=float(raw_input('exp equation coefficient for negatiev slope values: '));
+                    Options['breakpoint']=float(input('Slope of Asymmetry: '));
+                    Options['slopeCutoff']=float(input('Slope at which travel is impossible: '));
+                    Options['positiveScalingFactor']=float(input('exp equation coefficient for positive slope values: '));
+                    Options['negativeScalingFactor']=float(input('exp equation coefficient for negatiev slope values: '));
     ##Network##
     print(' ')
     print('%%%%%%%%%%%%%%%%%%%%%')
@@ -103,9 +103,9 @@ def mobilityModelParameters():
     print('%%%%%%%%%%%%%%%%%%%%%')
     print(' ')
     print('Enter 1 to load a network.')
-    Options['NetOpt']=int(raw_input('Enter 2 to create a regular network: '));
+    Options['NetOpt']=int(input('Enter 2 to create a regular network: '));
     if Options['NetOpt']==1:
-        Options['NetFile']=raw_input('Input file path (ex: c:\\data\\Edges.txt): ');
+        Options['NetFile']=input('Input file path (ex: c:\\data\\Edges.txt): ');
         Options['GeoLim']=1;
         Options['typeWidth']=0;
         Options['typeHeight']=0;
@@ -116,21 +116,21 @@ def mobilityModelParameters():
         print('Example: Input of .5 will create a network along the given dimension that is half the size of the largest raster.');
         print('Example: Input of 1 will create a network along the given dimension that is as large as the largest raster.');
         print('Example: Input of 200 will create a network of 200 nodes along the given dimension.');
-        Options['typeWidth']=float(raw_input('Input network width: ')); 
-        Options['typeHeight']=float(raw_input('Input network height: ')); 
+        Options['typeWidth']=float(input('Input network width: '));
+        Options['typeHeight']=float(input('Input network height: '));
         print('Input network type (default is Queen):')
         print('Enter 1 for Rook.')
         print('Enter 2 for Queen.')
-        Options['type']=int(raw_input('Enter 3 for Knight: '));
+        Options['type']=int(input('Enter 3 for Knight: '));
         print('How do you want to define the limits of the network?');
         print('1) Custom');
         print('2) Extent of raster(s)');
-        Options['GeoLim']=int(raw_input('3) Extent of Start/End Points: '));
+        Options['GeoLim']=int(input('3) Extent of Start/End Points: '));
         if Options['GeoLim']==1:
-            Options['xlow']=float(raw_input('Input min X: '));
-            Options['ylow']=float(raw_input('Input min Y: '));
-            Options['xhigh']=float(raw_input('Input max X: '));
-            Options['yhigh']=float(raw_input('Input max Y: '));
+            Options['xlow']=float(input('Input min X: '));
+            Options['ylow']=float(input('Input min Y: '));
+            Options['xhigh']=float(input('Input max X: '));
+            Options['yhigh']=float(input('Input max Y: '));
     ##Simulation##
     print(' ')
     print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
@@ -140,7 +140,7 @@ def mobilityModelParameters():
     print('Define Start and End Points: ')
     print('1) Use network nodes');
     print('2) Load points from a file');
-    Options['StEnPts']=int(raw_input('3) Manually enter points: '));
+    Options['StEnPts']=int(input('3) Manually enter points: '));
     print(' ')
     if Options['StEnPts']==1:
         print('%% Use network nodes %%')
@@ -148,13 +148,13 @@ def mobilityModelParameters():
         print('1) North to South');
         print('2) South to North');
         print('3) East to West');
-        Options['Direction']=int(raw_input('4) West to East: '));
+        Options['Direction']=int(input('4) West to East: '));
     elif Options['StEnPts']==2:
         Options['StartPoints'] = {}
         Options['EndPoints'] = {}
         print('%% Load points from file %%')
         print('Starting Points: ');
-        StPtFile=raw_input('Input start points file path (ex: c:\\data\\StartPoints.txt): ');
+        StPtFile=input('Input start points file path (ex: c:\\data\\StartPoints.txt): ');
         fl = open(StPtFile, mode='r')
         csvReader = csv.reader(fl)
         for ln in csvReader:
@@ -163,7 +163,7 @@ def mobilityModelParameters():
         fl.close()
         print(' ')
         print('Ending Points: ');
-        EnPtFile=raw_input('Input end points file path (ex: c:\\data\\EndPoints.txt): ');  
+        EnPtFile=input('Input end points file path (ex: c:\\data\\EndPoints.txt): ');
         fl = open(EnPtFile, mode='r')
         csvReader = csv.reader(fl)
         for ln in csvReader:
@@ -175,27 +175,27 @@ def mobilityModelParameters():
         Options['StartPoints'] = {}
         Options['EndPoints'] = {}
         print('%% Manually enter points %%')  
-        NumSt=int(raw_input('Number of start points: '));
+        NumSt=int(input('Number of start points: '));
         for i in range(0,NumSt):
-            ptID = int(raw_input('Please give a label for this point: '));
-            lat = float(raw_input('Input start coordinate latitude: '));
-            lon = float(raw_input('Input start coordinate longitude: '));
+            ptID = int(input('Please give a label for this point: '));
+            lat = float(input('Input start coordinate latitude: '));
+            lon = float(input('Input start coordinate longitude: '));
             Options['StartPoints'].update({ptID:{'lat':lat,'lon':lon}})
         print(' ')
-        NumEn=int(raw_input('Number of end points: '));
+        NumEn=int(input('Number of end points: '));
         for i in range(0,NumEn):
-            ptID = raw_input('Please give a label for this point: ');
-            lat = float(raw_input('Input start coordinate latitude: '));
-            lon = float(raw_input('Input start coordinate longitude: '));
+            ptID = input('Please give a label for this point: ');
+            lat = float(input('Input start coordinate latitude: '));
+            lon = float(input('Input start coordinate longitude: '));
             Options['EndPoints'].update({ptID:{'lat':lat,'lon':lon}})
     print(' ')
     print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
     print('%% Define Monte Carlo Simulation. %%')
     print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
     print(' ')
-    Options['PrCnt']=float(raw_input('Maximum per cent of cost value perturbation: '));
+    Options['PrCnt']=float(input('Maximum per cent of cost value perturbation: '));
     Options['PrCnt']=Options['PrCnt']/100;
-    Options['NumRuns']=float(raw_input('Number of simulations (for each Start Location): '));
+    Options['NumRuns']=float(input('Number of simulations (for each Start Location): '));
     return Options
     
 #Options = mobilityModelParameters()
