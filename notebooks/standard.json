@@ -1,0 +1,40 @@
+{
+    "ModelType": 1,
+    "SngPathOpt": 0,
+    "CstOpt": 1,
+    "Costs": [
+        {
+            "Filename": "../data/srtm_39_08.asc",
+            "type": 2
+        }
+    ],
+    "weights": [
+        1.0
+    ],
+    "typeLinearSlopeTransform": 1,
+    "defaultSlopeValues": 2,
+    "NetOpt": 2,
+    "typeWidth": 200.0,
+    "typeHeight": 200.0,
+    "type": 2,
+    "GeoLim": 1,
+    "xlow": 11.0,
+    "ylow": 22.0,
+    "xhigh": 13.25,
+    "yhigh": 23.5,
+    "StEnPts": 3,
+    "StartPoints": {
+        "1": {
+            "lat": 22.75,
+            "lon": 12.5
+        }
+    },
+    "EndPoints": {
+        "1": {
+            "lat": 22.75,
+            "lon": 11.75
+        }
+    },
+    "PrCnt": 0.1,
+    "NumRuns": 10.0
+}

@@ -22,10 +22,10 @@ def arcAsciiImport(filePath):
         rawLine = rawLine.replace('\n','')
         if lnCount == 0:
             Raster['NCols'] = float(rawLine[5:len(rawLine)])
-            print 'Number of columns to process: ' + str(Raster['NCols'])       
+            print('Number of columns to process: ' + str(Raster['NCols']))
         elif lnCount == 1:
             Raster['NRows'] = float(rawLine[5:len(rawLine)])
-            print 'Number of rows to process: ' + str(Raster['NRows'])
+            print('Number of rows to process: ' + str(Raster['NRows']))
         elif lnCount == 2:
             Raster['Xllcorner'] = float(rawLine[9:len(rawLine)])
         elif lnCount == 3:
@@ -95,24 +95,22 @@ def arcPtsToEdges(filePath):
     print('Done.');
     return nodes,links
 
-def writeJSON(datalist,filePath):
+def read_json(file_path):
+    """Read JSON file to Python dictionary.
+
+    Returns d <type 'dict'>
+    """
+    with open(file_path) as json_data:
+        d = json.load(json_data)
+    return d
+
+
+def write_json(data_dict,file_path):
     """Writes Python object to a JSON file.
     """
-    with open(filePath, 'wb') as fp:
-        js.dump(datalist,fp)
+    with open(file_path, 'w') as fp:
+        json.dump(data_dict, fp, indent=4)
 
-def readJSON(filePath):
-    """Read JSON file to Python dictionary.
-    
-    Returns data_json <type 'dict'>
-    """
-    try:
-        with open(filePath, 'rb') as fp:
-            data_json = js.load(fp)
-            fp.close()
-    except ValueError:
-        data_json = {}
-    return data_json
 
 def writeSegmentDetailsTxt(outPath,singleSimulation,nodes):
     """Write simulation segment statistics to text file.

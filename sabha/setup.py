@@ -185,8 +185,8 @@ def mobilityModelParameters():
         NumEn=int(input('Number of end points: '));
         for i in range(0,NumEn):
             ptID = input('Please give a label for this point: ');
-            lat = float(input('Input start coordinate latitude: '));
-            lon = float(input('Input start coordinate longitude: '));
+            lat = float(input('Input end coordinate latitude: '));
+            lon = float(input('Input end coordinate longitude: '));
             Options['EndPoints'].update({ptID:{'lat':lat,'lon':lon}})
     print(' ')
     print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
@@ -199,3 +199,5 @@ def mobilityModelParameters():
     return Options
     
 #Options = mobilityModelParameters()
+#12.5,22.75
+#11.75, 22.75
