@@ -4,14 +4,16 @@ reqs = [
     "bokeh",
     "numpy",
     "pandas",
-    "yaml"
+    "yaml",
+    "networkx"
 ]
 
 conda_reqs = [
     "bokeh",
     "numpy",
     "pandas",
-    "yaml"
+    "yaml",
+    "networkx"
 ]
 
 test_pkgs = []

@@ -331,7 +331,7 @@ def edgeMonteCarlo(nodes,links,totalCost,pathS,pathE,PrCnt,NumRuns,SngPathOpt,mo
             grph = updateDiGraphCosts(grph,pertCosts);
             [pred, dist] = nx.dijkstra_predecessor_and_distance(grph,pathS,weight='weight')
         if np.mod(z,displayCount)==0:
-            print tm.asctime() + ' Simulation No: ' + str(z);
+            print(tm.asctime() + ' Simulation No: ' + str(z));
         paths=[];
         pCosts=[];
         for ep in pathE:
@@ -365,7 +365,7 @@ def edgeMonteCarlo(nodes,links,totalCost,pathS,pathE,PrCnt,NumRuns,SngPathOpt,mo
     print('Number of successful routes: ');
     print(len(pathE) * NumRuns);
     print('Total Process Time:');
-    print StartTime + ' to ' + EndTime
+    print(StartTime + ' to ' + EndTime)
     return simDetails
     
 def startSimulation(Options,nodes,links,totalCost):
@@ -379,17 +379,17 @@ def startSimulation(Options,nodes,links,totalCost):
     Results=[];
     #Regular or Agent type simulation. Connects each start node to all end nodes.
     if Options['ModelType']==1 or Options['ModelType']==3:
-        print "******1 or 3********"
+        print("******1 or 3********")
         for i in range(0,len(Options['StNode'])):
-            print tm.asctime() + ' Running simulation for start point ' + str(i);
+            print(tm.asctime() + ' Running simulation for start point ' + str(i));
             Results.append(edgeMonteCarlo(nodes,links,totalCost, \
             Options['StNode'][i],Options['EnNode'],Options['PrCnt'], \
             Options['NumRuns'],Options['SngPathOpt'],Options['ModelType']));
     #Modified type simulation. Connects each start node to each end node.
     elif Options['ModelType']==2:
-        print "******2********"
+        print("******2********")
         for i in range(0,len(Options['StNode'])):
-            print tm.asctime() + ' Running simulation for start point ' + str(i);
+            print(tm.asctime() + ' Running simulation for start point ' + str(i));
             endNode = [Options['EnNode'][i]];
             Results.append(edgeMonteCarlo(nodes,links,totalCost, \
             Options['StNode'][i],endNode,Options['PrCnt'], \

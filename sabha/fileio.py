@@ -101,7 +101,7 @@ def read_json(file_path):
     Returns d <type 'dict'>
     """
     with open(file_path) as json_data:
-        d = json.load(json_data)
+        d = js.load(json_data)
     return d
 
 
@@ -109,7 +109,7 @@ def write_json(data_dict,file_path):
     """Writes Python object to a JSON file.
     """
     with open(file_path, 'w') as fp:
-        json.dump(data_dict, fp, indent=4)
+        js.dump(data_dict, fp, indent=4)
 
 
 def writeSegmentDetailsTxt(outPath,singleSimulation,nodes):
