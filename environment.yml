@@ -1,0 +1,13 @@
+name: sabha
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.7
+  - jupyterlab
+  - bokeh
+  - yaml
+  - numpy
+  - pandas
+  - qgis
+  - networkx
